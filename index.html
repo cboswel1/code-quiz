@@ -13,20 +13,26 @@
   </head>
   <body>
     <div class="container">
-      <button type="button" class="btn btn-secondary" id="startQuiz">Start Quiz</button>
-      <div class="row"> 
-        <div class="col-md-6 offset-md-3">
-          <div id="questions"></div>
-          <div id="choices">
-            <div class="choice" id="1" onclick="checkAnswer('A')"></div>
-            <div class="choice" id="2" onclick="checkAnswer('B')"></div>
-            <div class="choice" id="3" onclick="checkAnswer('C')"></div>
-            <div class="choice" id="4" onclick="clickAnswer('D')"></div>
+          <div id="startQuiz">Start Quiz</div>
+          <div id="quiz" style="display: none">
+            <div id="questions"></div>
+            <div class="position-relative" id="choices">
+              <div class="row">
+                <div class="choice" id="1"></div>
+              </div>
+              <div class="row">
+                <div class="choice" id="2"></div>
+              </div>
+              <div class="row">
+                <div class="choice" id="3"></div>
+              </div>
+              <div class="row">
+                <div class="choice" id="4"></div>
+              </div>
+            </div>
           </div>
-        </div>
-
-      </div>
     </div>
+  
 
 
     

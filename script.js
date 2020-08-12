@@ -49,7 +49,7 @@ let question1 = [
         choice2: "B", 
         choice3: "C",
         choice4: "D",
-        correct: "",
+        correct: ""
     },
     {
         question: "question 5", 
@@ -57,7 +57,7 @@ let question1 = [
         choice2: "B", 
         choice3: "C",
         choice4: "D",
-        correct:"",
+        correct:""
     }
 ]
 console.log(question1);
@@ -80,8 +80,9 @@ function renderQ() {
     choice4.innerHTML = qArray.choice4;
 }
 
-
-console.log(renderQ());
+startQuiz.style.display = "none";
+renderQ();
+quiz.style.display = "block";
 
 
 
