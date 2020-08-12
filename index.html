@@ -13,24 +13,28 @@
   </head>
   <body>
     <div class="container">
-          <div id="startQuiz">Start Quiz</div>
-          <div id="quiz" style="display: none">
-            <div id="questions"></div>
+      <div class="switches mx-auto" style="width:200px;"> 
+        <button type="button" id="start" class="btn btn-secondary mt-3 mx-auto" style="width: 200px;">Start</button>  
+        <button type="button" id="next" class="btn btn-secondary mt-3 hide">Next</button>
+      </div>
+      <div id="questions" class="hide">
+          <div class="mb-4" id="questions">Question</div>
             <div class="position-relative" id="choices">
               <div class="row">
-                <div class="choice" id="1"></div>
+                <button type="button" class="btn btn-secondary ml-2 mb-2" id="A">This will be the first choice</button>
               </div>
               <div class="row">
-                <div class="choice" id="2"></div>
+                <button type="button" class="btn btn-secondary ml-2 mb-2" id="B">This will be the second choice</button>
               </div>
               <div class="row">
-                <div class="choice" id="3"></div>
+                <button type="button" class="btn btn-secondary ml-2 mb-2" id="C">This will be the third choice</button>
               </div>
               <div class="row">
-                <div class="choice" id="4"></div>
+                <button type="button" class="btn btn-secondary ml-2 mb-2" id="D">This will be the fourth choice</button>
               </div>
             </div>
-          </div>
+      </div>
+      
     </div>
   
 

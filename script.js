@@ -63,26 +63,25 @@ let question1 = [
 console.log(question1);
 
 
-//new variable 
-let questionsArray = question1.length -1;
+// function to start game 
 
-//empty variable for index
-let allQuestions = 0; 
+function startGame() {
 
-// render a function that can take our array index and assign to each question
-function renderQ() {
-    let qArray = question1[allQuestions]; 
-
-    questions.innerHTML = "<p>" + qArray.questions +"</p>"; 
-    choice1.innerHTML = qArray.choice1; 
-    choice2.innerHTML = qArray.choice2; 
-    choice3.innerHTML = qArray.choice3; 
-    choice4.innerHTML = qArray.choice4;
 }
 
-startQuiz.style.display = "none";
-renderQ();
-quiz.style.display = "block";
+//function for next question 
+
+function nextQuestion {
+
+}
+
+//function to select answer
+
+function correctAnswer {
+
+}
+
+
 
 
 
