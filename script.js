@@ -81,7 +81,7 @@ function renderQ() {
 }
 
 
-renderQ();
+console.log(renderQ());
 
 
 

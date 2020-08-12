@@ -2,7 +2,7 @@ body {
     background-color: #fea49f;
 }
 
-#container{
+.container{
     margin : 100px auto;
     background-color: #101357;
     height: 300px;
@@ -38,3 +38,7 @@ body {
     top:50px;
     color : black;
 }
+
+#question 
+
+#choice 
