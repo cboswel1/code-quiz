@@ -1,13 +1,21 @@
 # Psuedo 
 
-Create an array of questions and possible answers
+Display Questions
 
-I need a start button that: 
-    - will dissapear when pressed 
-    - When the user clicks it, it will prompt a new function with a series of questions 
+Create an array of questions and possible answers and correct answer 
 
-This new function will be: 
-    - A Question 
-    - 4 possible answers 
-    - pulling questions from an array 
+assigns elements as needed 
+
+create a function that renders questions and choices to screen 
+
+create function that allows user choose correct answer 
+
+    - alerts on page if answer is correct or incorrect 
+    - gives score if answer is correct
+
+Once 4 questions have been asked, display page with score and input form to record score 
+
+final page will display high scores
+
+
     
