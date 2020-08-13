@@ -1,95 +1,61 @@
-// HTML Element Assignments 
-
-//Start Quiz page
-const startQuiz = document.getElementById("startQuiz");
-
-//quiz questions
-const quiz = document.getElementById("quiz");
-
-//quiz question
-const questions = document.getElementById("questions");
-
-//quiz choices
-const choice1 = document.getElementById("1");
-const choice2 = document.getElementById("2");
-const choice3 = document.getElementById("3"); 
-const choice4 = document.getElementById("4");
-
-//Create an Array of Questions that can be picked from. 
-
-
-let question1 = [
+//Questions Array
+var body = document.body;
+let allQuestion = [
     {
         question: "What is the HTML tag to write inline JavaScript?",
-        choice1: "<style>",
-        choice2: "<script>",
-        choice3: "<javaScript>", 
-        choice4: "<java>",
-        correct: "2"
-    }, 
-    {
-        question: "question 2",
-        choice1: "dec",
-        choice2: "tell",
-        choice3: "let",
-        choice4: "if",
-        correct: ""
+        choices: ["A", "B", "C", "D"],
+        Answer: "B" 
     },
     {
-        question: "question 3",
-        choice1: "A",
-        choice2: "B",
-        choice3: "C",
-        choice4: "D", 
-        correct: ""
-    }, 
-    {
-        question: "question 4",
-        choice1: "A", 
-        choice2: "B", 
-        choice3: "C",
-        choice4: "D",
-        correct: ""
+        question: "Question 2",
+        choices: ["A", "B", "C", "D"],
+        Answer: "B" 
     },
     {
-        question: "question 5", 
-        choice1: "A", 
-        choice2: "B", 
-        choice3: "C",
-        choice4: "D",
-        correct:""
-    }
-]
-console.log(question1);
+        question: "Question 3",
+        choices: ["A", "B", "C", "D"],
+        Answer: "B" 
+    },
+    {
+        question: "Question 4",
+        choices: ["A", "B", "C", "D"],
+        Answer: "B" 
+    },
+];
 
 
-// function to start game 
+console.log(allQuestion);
 
-function startGame() {
+//Declared 
+ let button = document.querySelector("#button");
+ console.log(button);
 
-}
+ let questionsBox = document.querySelector("#questions"); 
 
-//function for next question 
-
-function nextQuestion {
-
-}
-
-//function to select answer
-
-function correctAnswer {
-
-}
-
-
-
-
-
-
+ button.addEventListener('click', clear)  
    
 
 
-        
-    
+ function clear() {
+    console.log("clicked!", questionsBox)
+    questionsBox.innerHTML =
+ }
 
-    
+ function renderQ(name) {
+     console.log(name);
+     let start = document.createElement('h2'); 
+     let message = name + ' is awesome';
+     start.innerHTML = message;
+     questionsBox.append(start);
+ }
+
+ allQuestion.forEach(function(question, answer,) {
+    console.log(question, answer)
+ })
+ renderQ("Chris"); 
+ renderQ("Bob"); 
+ renderQ("Tom"); 
+
+
+
+

@@ -1,5 +1,6 @@
 body {
     background-color: #fea49f;
+    color: white;
 }
 
 .container{
@@ -12,15 +13,12 @@ body {
     position: relative;
 }
 
-#questions {
-    color: aliceblue;
-}
+
 
 .hide {
     display: none;
 }
 
-.switches {
-    justify-content: center;
-    align-items: center;
+#questions {
+  color: aliceblue;
 }
