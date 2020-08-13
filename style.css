@@ -4,7 +4,7 @@ body {
 }
 
 .container{
-    margin : 100px auto;
+    margin : 50px auto;
     background-color: #101357;
     height: 400px;
     width : 800px;
@@ -21,4 +21,14 @@ body {
 
 #questions {
   color: aliceblue;
+}
+
+.navbar {
+    background-color: #101357;
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Oswald', sans-serif;
+    color: #101357
 }

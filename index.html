@@ -8,16 +8,25 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap" rel="stylesheet">
 
     <title>Code Quiz</title>
   </head>
   <body>
+    <h1 class="mt-4">JavaScript Code Quiz</h1>
     <div class="container">
-          <div id="questions" class="pt-4 mb-4">Question</div>
-          <button id="button">Clear</button>
-      
-      
-    
+      <nav class="nav">
+        
+        <a class="col-10 nav-link" href="#">High Scores!</a>
+        <li class="col-2 mt-2" id="timer"></li>
+        
+      </nav>
+        <div id="questions" class="pt-4 mb-4">Question</div>
+           
+          <div class="start-next mt-4">
+          <button type="button" id="button" class="btn btn-primary btn-sm">Next Question</button>
+          </div>
+          
       </div>
     </div>
   
