@@ -1,6 +1,5 @@
 body {
     background-color: #fea49f;
-    color: white;
 }
 
 .container{
@@ -14,13 +13,15 @@ body {
 }
 
 
-
 .hide {
     display: none;
 }
 
 #questions {
-  color: aliceblue;
+  color: #fbaf08;
+  font-size: 25px;
+  font-family: 'Oswald', sans-serif;
+  
 }
 
 .navbar {
@@ -31,4 +32,37 @@ h1 {
     text-align: center;
     font-family: 'Oswald', sans-serif;
     color: #101357
+}
+
+
+li {
+    color: #fea49f;
+    padding-top: 10px;
+    font-size: 15px;
+    list-style: none;
+}
+
+.btn {
+    color: #fbaf08;
+    box-shadow: 0px 3px 5px 0px;
+    font-size: 20px;
+    margin-top: 10px;
+    font-family: 'Oswald', sans-serif;
+}
+
+#scores {
+    color: #fbaf08;
+    margin-top: 5px;
+    font-family: 'Oswald', sans-serif;
+}
+
+#timer {
+    color: #fbaf08;
+    font-family: 'Oswald', sans-serif;
+}
+
+p {
+    color: #fbaf08;
+    font-family: 'Oswald', sans-serif;
+    font-size: 20px;
 }
