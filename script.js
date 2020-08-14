@@ -3,22 +3,22 @@ let allQuestion = [
     {
         question: "What is the HTML tag to write inline JavaScript?",
         choices: ["A: <style>", "B: <js>", "C: <script>", "D: <html>"],
-        Answer: "C: <script>" 
+        answer: 3 
     },
     {
         question: "How would you write 'Hello World' in an alert box?",
         choices: ["A: heyYou('Hello World')", "B: popUp('Hello World')", "C: log('Hello World')", "D: alert('Hello World')"],
-        Answer: "D: alert('Hello World')" 
+        answer: 4
     },
     {
         question: "Which event occurs when a user clicks an HTML element?",
         choices: ["A: ontop", "B: onlick", "C: onclick", "D: push"],
-        Answer: "C: onclick" 
+        answer: 3
     },
     {
         question: "Question 4",
         choices: ["A", "B", "C", "D"],
-        Answer: "B" 
+        answer: 2 
     }
 ];
 
@@ -32,17 +32,19 @@ console.log(allQuestion);
  var startButton = document.querySelector("#start-button");
  var startP = document.querySelector("#start-p");
  var reStart = document.querySelector("#restart-button");
+ 
 
  //variable to get index to 0
  var questionIndex = 0;
  var score = 0;
 
 
- //time variable
+ //time variables
  var secondsLeft = 61;
- var timePenalty = 10
+ var timePenalty = 10;
+ var timerInterval;
 
- //created ul for questions
+ //created ul for questions Box
  var ul = document.createElement("ul");
 
 //event listeners at start 
@@ -50,8 +52,8 @@ startButton.addEventListener('click', startGame)
 startButton.addEventListener('click', setTime)
 reStart.addEventListener('click', timeUp)
 
-//start game function 
 
+//start game function 
 
 function startGame() {
     startP.classList.add('hide');
@@ -65,92 +67,67 @@ function startGame() {
  function renderQ () {
    questionsBox.innerHTML = ""; 
    ul.innerHTML = ""; 
+   var qChoice = 1;
     
-   for (var i = 0; i< allQuestion.length; i++) {
+   if (allQuestion.length === questionIndex) {
+     endGame();
+       return;
+   }
+   
         var currentQ = allQuestion[questionIndex].question; 
         var currentCh = allQuestion[questionIndex].choices; 
         questionsBox.textContent = currentQ; 
-   }
+        questionIndex++;
     
     //function for choices
     currentCh.forEach(function (newSet) {
         var li = document.createElement("li"); 
         li.textContent = newSet; 
+        li.setAttribute("value", qChoice);
         questionsBox.appendChild(ul); 
         ul.appendChild(li);
-        button.addEventListener('click', renderQ2) 
-        
+        ul.addEventListener('click', enterScore);
+        button.addEventListener('click', renderQ) 
+        qChoice++;
     });
-    //make li 
+        
+
+
+    
 }
 
- //Question 2
- function renderQ2 () {
-     
-    questionsBox.innerHTML = ""; 
-    ul.innerHTML = ""; 
- 
-         var currentQ = allQuestion[1].question; 
-         var currentCh = allQuestion[1].choices; 
-         questionsBox.textContent = currentQ; 
-   
- 
-     //function for choices
-     currentCh.forEach(function (newSet) {
-         var li = document.createElement("li"); 
-         li.textContent = newSet; 
-         questionsBox.appendChild(ul); 
-         ul.appendChild(li);
-         li.addEventListener('click', enterScore);
-         button.addEventListener("click", renderQ3)  
-     });
-  }
-
-  //Question 3
-  function renderQ3 () {
-    questionsBox.innerHTML = ""; 
-    ul.innerHTML = ""; 
-         var currentQ = allQuestion[2].question; 
-         var currentCh = allQuestion[2].choices; 
-         questionsBox.textContent = currentQ; 
-     
- 
-     //function for choices
-     currentCh.forEach(function (newSet) {
-         var li = document.createElement("li"); 
-         li.textContent = newSet; 
-         questionsBox.appendChild(ul); 
-         ul.appendChild(li);
-         button.addEventListener("click", renderQ4)
-     });
-  }
-
-
-  //Question 4
-  function renderQ4 () {
-    questionsBox.innerHTML = ""; 
-    ul.innerHTML = ""; 
-         var currentQ = allQuestion[3].question; 
-         var currentCh = allQuestion[3].choices; 
-         questionsBox.textContent = currentQ; 
-     
- 
-     //function for choices
-     currentCh.forEach(function (newSet) {
-         var li = document.createElement("li"); 
-         li.textContent = newSet; 
-         questionsBox.appendChild(ul); 
-         ul.appendChild(li);
-         ul.addEventListener("click", enterScore)
-     });
-  }
+function endGame () {
+    clearInterval(timerInterval);
+    timeUp();
+    console.log("!");
+}
 
   
+  // function to select choice, see if answer is correct, get points if so, lose time if not. 
+  //score (local storage) score++, 
+  //event target
 
-  function enterScore() {
 
-        console.log("is working?")  
+  function enterScore(event) {
+
+    var correctA = document.createElement("div");
+    correctA.setAttribute("id", "correctA");
       
+        var qAnswer = allQuestion[questionIndex -1].answer
+
+        if (event.target.value === qAnswer) {
+            console.log("answer");
+            
+            correctA.textContent = "Correct!";
+        }  else {
+            console.log("incorrect");
+            correctA.textContent = "Wrong!";
+
+            // alert false 
+            // lose time 
+        }
+
+        
   }
 
 
@@ -160,15 +137,15 @@ function startGame() {
 //if/else statement for correct and incorrect - scores?
 
 
+
 //timer function 
 function setTime() {
-    var timerInterval = setInterval(function() {
+      timerInterval = setInterval(function() {
       secondsLeft--;
       timer.textContent = "Time Left: " + secondsLeft 
   
       if(secondsLeft === 0) {
-        clearInterval(timerInterval);
-        timeUp();
+        endGame();
       }
   
     }, 1000);
@@ -183,5 +160,6 @@ function timeUp() {
 
 //score function 
 
+//render questions function
 renderQ();
 
