@@ -110,18 +110,19 @@ function endGame () {
 
   function enterScore(event) {
 
-    var correctA = document.createElement("div");
-    correctA.setAttribute("id", "correctA");
+ 
       
         var qAnswer = allQuestion[questionIndex -1].answer
 
         if (event.target.value === qAnswer) {
-            console.log("answer");
+            console.log("correct");
+            questionsBox.textContent = "Correct! You currently have";
+            score++
             
-            correctA.textContent = "Correct!";
         }  else {
             console.log("incorrect");
-            correctA.textContent = "Wrong!";
+            questionsBox.textContent = "Wrong! You lost 10 Seconds of Time!";
+            secondsLeft = secondsLeft - timePenalty;
 
             // alert false 
             // lose time 
