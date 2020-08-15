@@ -99,7 +99,34 @@ function startGame() {
 function endGame () {
     clearInterval(timerInterval);
     timeUp();
+    timer.classList.add("hide");
+    questionsBox.classList.remove("hide");
+    reStart.classList.add("hide");
     console.log("!");
+    console.log(score);
+
+    //User Details text
+    var userDetails = document.createElement("label");
+    userDetails.setAttribute("id", "userDetails");
+    userDetails.textContent = "Enter Your Initials: ";
+    questionsBox.appendChild(userDetails);
+
+    //input form
+    var inputForm = document.createElement("input");
+    inputForm.setAttribute("type", "text"); 
+    inputForm.setAttribute("id", "initials");
+    inputForm.setAttribute("class", "text-center");
+    inputForm.textContent = "";
+    questionsBox.appendChild(inputForm);
+
+    //submit button 
+
+    var userSubmit = document.createElement("button");
+    userSubmit.setAttribute("type", "submit");
+    userSubmit.setAttribute("id", "Submit"); 
+    userSubmit.textContent = "Submit";
+    questionsBox.appendChild(userSubmit);
+
 }
 
   
@@ -109,26 +136,18 @@ function endGame () {
 
 
   function enterScore(event) {
+    var qAnswer = allQuestion[questionIndex -1].answer
 
- 
-      
-        var qAnswer = allQuestion[questionIndex -1].answer
-
-        if (event.target.value === qAnswer) {
-            console.log("correct");
-            questionsBox.textContent = "Correct! You currently have";
-            score++
+    if (event.target.value === qAnswer) {
+        console.log("correct");
+        questionsBox.textContent = "Correct! +10 Points! ";
+        score += 10;
             
-        }  else {
-            console.log("incorrect");
-            questionsBox.textContent = "Wrong! You lost 10 Seconds of Time!";
-            secondsLeft = secondsLeft - timePenalty;
-
-            // alert false 
-            // lose time 
-        }
-
-        
+    }  else {
+        console.log("incorrect");
+        questionsBox.textContent = "Wrong! You lost 10 Seconds of Time!";
+        secondsLeft = secondsLeft - timePenalty;
+        }       
   }
 
 

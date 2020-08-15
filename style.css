@@ -40,6 +40,8 @@ li {
     padding-top: 10px;
     font-size: 15px;
     list-style: none;
+    cursor: pointer;
+    width: 200px;
 }
 
 .btn {
@@ -65,4 +67,18 @@ p {
     color: #fbaf08;
     font-family: 'Oswald', sans-serif;
     font-size: 20px;
+}
+
+label {
+    margin-right: 10px;
+} 
+
+input {
+    margin-right: 10px;
+}
+
+button {
+    background-color: #fbaf08;
+    font-family: 'Oswald', sans-serif;
+    border-radius: 5px;
 }
