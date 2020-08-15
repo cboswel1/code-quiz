@@ -16,8 +16,8 @@ let allQuestion = [
         answer: 3
     },
     {
-        question: "Question 4",
-        choices: ["A", "B", "C", "D"],
+        question: "Which built-in method returns the character at the specified index?",
+        choices: ["A: characterAt()", "B: charAt()", "C: getCharAt()", "D: getItSon()"],
         answer: 2 
     }
 ];
@@ -32,6 +32,9 @@ console.log(allQuestion);
  var startButton = document.querySelector("#start-button");
  var startP = document.querySelector("#start-p");
  var reStart = document.querySelector("#restart-button");
+ var highScore = document.querySelector("#scores");
+ var userScore = document.querySelector("#user-score");
+
  
 
  //variable to get index to 0
@@ -59,7 +62,8 @@ function startGame() {
     startP.classList.add('hide');
     startButton.classList.add('hide');
     questionsBox.classList.remove('hide');
-    button.classList.remove('hide');
+    button.classList.remove("hide");
+    highScore.classList.remove("hide");
     
 }
 
@@ -68,7 +72,7 @@ function startGame() {
    questionsBox.innerHTML = ""; 
    ul.innerHTML = ""; 
    var qChoice = 1;
-    
+   
    if (allQuestion.length === questionIndex) {
      endGame();
        return;
@@ -98,6 +102,9 @@ function endGame () {
     timer.classList.add("hide");
     questionsBox.classList.remove("hide");
     reStart.classList.add("hide");
+    highScore.classList.add("hide");
+    userScore.classList.remove("hide");
+
     console.log("!");
     console.log(score);
 
@@ -122,6 +129,10 @@ function endGame () {
     userSubmit.textContent = "Submit";
     questionsBox.appendChild(userSubmit);
 
+    //user score
+    userScore.textContent = "Your Final Score is " + score + " points!"
+    
+
     userSubmit.addEventListener('click', function() {
         var userName = inputForm.value
         console.log("hello!");
@@ -130,7 +141,7 @@ function endGame () {
 }
 
   
-  // function to select choice, see if answer is correct, get points if so, lose time if not. 
+  //function to select choice, see if answer is correct, get points if so, lose time if not. 
   //score (local storage) score++, 
   //event target
 

@@ -93,5 +93,11 @@ button {
 hr {
     background-color: beige;
     width: 50%;
-    margin-top: 5px;
+}
+
+#user-score {
+    color: #fbaf08;
+    margin-left: 25px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 30px;
 }
