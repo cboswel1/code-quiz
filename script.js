@@ -104,7 +104,7 @@ function endGame () {
     //User Details text
     var userDetails = document.createElement("label");
     userDetails.setAttribute("id", "userDetails");
-    userDetails.textContent = "Enter Your Initials: ";
+    userDetails.textContent = "Enter Your Name: ";
     questionsBox.appendChild(userDetails);
 
     //input form
@@ -121,6 +121,11 @@ function endGame () {
     userSubmit.setAttribute("id", "Submit"); 
     userSubmit.textContent = "Submit";
     questionsBox.appendChild(userSubmit);
+
+    userSubmit.addEventListener('click', function() {
+        var userName = inputForm.value
+        console.log("hello!");
+    });
 
 }
 

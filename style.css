@@ -34,6 +34,11 @@ h1 {
     color: #101357
 }
 
+h2 {
+    color: #fbaf08;
+    font-family: 'Oswald', sans-serif;
+    font-size: 32px;
+}
 
 li {
     color: #fea49f;
@@ -77,8 +82,16 @@ input {
     margin-right: 10px;
 }
 
+/* submit button */
+
 button {
     background-color: #fbaf08;
     font-family: 'Oswald', sans-serif;
     border-radius: 5px;
+}
+
+hr {
+    background-color: beige;
+    width: 50%;
+    margin-top: 5px;
 }
