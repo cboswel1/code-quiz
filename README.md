@@ -4,7 +4,7 @@ The code-quiz is an interactive browser application that once started, presents 
 
 ## Preview 
 
-[Code Quiz Preview](https://github.com/cboswel1/code-quiz/blob/master/Assets/images/Screen%20Shot%202020-08-15%20at%205.36.59%20PM.png?raw=true)
+![Code Quiz Preview](https://github.com/cboswel1/code-quiz/blob/master/Assets/images/Screen%20Shot%202020-08-15%20at%205.36.59%20PM.png?raw=true)
 
 ## How Does It Work
 
