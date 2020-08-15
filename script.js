@@ -73,7 +73,6 @@ function startGame() {
      endGame();
        return;
    }
-   
         var currentQ = allQuestion[questionIndex].question; 
         var currentCh = allQuestion[questionIndex].choices; 
         questionsBox.textContent = currentQ; 
@@ -89,13 +88,10 @@ function startGame() {
         ul.addEventListener('click', enterScore);
         button.addEventListener('click', renderQ) 
         qChoice++;
-    });
-        
-
-
-    
+    });   
 }
 
+// Once questions are complete, function to record score and user information. 
 function endGame () {
     clearInterval(timerInterval);
     timeUp();
@@ -120,7 +116,6 @@ function endGame () {
     questionsBox.appendChild(inputForm);
 
     //submit button 
-
     var userSubmit = document.createElement("button");
     userSubmit.setAttribute("type", "submit");
     userSubmit.setAttribute("id", "Submit"); 
@@ -151,13 +146,6 @@ function endGame () {
   }
 
 
- 
-
-
-//if/else statement for correct and incorrect - scores?
-
-
-
 //timer function 
 function setTime() {
       timerInterval = setInterval(function() {
@@ -178,7 +166,6 @@ function timeUp() {
         button.classList.add('hide');
 }
 
-//score function 
 
 //render questions function
 renderQ();
