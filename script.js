@@ -194,6 +194,7 @@ function setTime() {
 //function to hide timer once questions end
 function timeUp() {
         // questionsBox.classList.add('hide');
+        alert("Time's Up!");
         reStart.classList.remove('hide');
         button.classList.add('hide');
         timer.classList.add('hide')
