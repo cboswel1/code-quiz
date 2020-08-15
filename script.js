@@ -23,8 +23,6 @@ let allQuestion = [
 ];
 
 
-console.log(allQuestion);
-
 //Declared 
  var button = document.querySelector("#next-button");
  var questionsBox = document.querySelector("#questions"); 
@@ -34,30 +32,33 @@ console.log(allQuestion);
  var reStart = document.querySelector("#restart-button");
  var highScore = document.querySelector("#scores");
  var userScore = document.querySelector("#user-score");
+ var userScores = document.querySelector("#user-details");
+ var scoreInfo = document.querySelector("#score-info");
 
  
-
  //variable to get index to 0
  var questionIndex = 0;
  var score = 0;
+ var finalScores = [];
 
 
  //time variables
- var secondsLeft = 61;
+ var secondsLeft = 41;
  var timePenalty = 10;
  var timerInterval;
+
 
  //created ul for questions Box
  var ul = document.createElement("ul");
 
+
 //event listeners at start 
 startButton.addEventListener('click', startGame)
 startButton.addEventListener('click', setTime)
-reStart.addEventListener('click', timeUp)
+// reStart.addEventListener('click', timeUp)
 
 
 //start game function 
-
 function startGame() {
     startP.classList.add('hide');
     startButton.classList.add('hide');
@@ -95,24 +96,24 @@ function startGame() {
     });   
 }
 
+
 // Once questions are complete, function to record score and user information. 
 function endGame () {
     clearInterval(timerInterval);
-    timeUp();
     timer.classList.add("hide");
-    questionsBox.classList.remove("hide");
-    reStart.classList.add("hide");
+    questionsBox.classList.add("hide");
+    scoreInfo.classList.remove("hide");
+    reStart.classList.remove("hide");
     highScore.classList.add("hide");
     userScore.classList.remove("hide");
-
-    console.log("!");
-    console.log(score);
+    userScores.classList.remove("hide");
+    button.classList.add("hide");
 
     //User Details text
     var userDetails = document.createElement("label");
     userDetails.setAttribute("id", "userDetails");
     userDetails.textContent = "Enter Your Name: ";
-    questionsBox.appendChild(userDetails);
+    scoreInfo.appendChild(userDetails);
 
     //input form
     var inputForm = document.createElement("input");
@@ -120,42 +121,54 @@ function endGame () {
     inputForm.setAttribute("id", "initials");
     inputForm.setAttribute("class", "text-center");
     inputForm.textContent = "";
-    questionsBox.appendChild(inputForm);
+    scoreInfo.appendChild(inputForm);
 
     //submit button 
     var userSubmit = document.createElement("button");
     userSubmit.setAttribute("type", "submit");
     userSubmit.setAttribute("id", "Submit"); 
     userSubmit.textContent = "Submit";
-    questionsBox.appendChild(userSubmit);
+    scoreInfo.appendChild(userSubmit);
 
     //user score
     userScore.textContent = "Your Final Score is " + score + " points!"
-    
 
-    userSubmit.addEventListener('click', function() {
-        var userName = inputForm.value
-        console.log("hello!");
+    //event listener to display user name and score after entered. 
+    userSubmit.addEventListener('click', function(event) {
+        event.preventDefault();
+        
+        var userName = {
+            name: inputForm.value.trim(),
+            thescore: score
+        }
+
+        
+
+       if (userName.name === "") {
+           alert("You must enter a name.");
+       } else {
+           //Local Storage to set and display to user
+           localStorage.setItem("user", JSON.stringify(userName));
+
+           var printUser = JSON.parse(localStorage.getItem("user"));
+           userScore.textContent = "Player: " + printUser.name;
+           
+           var printScore = JSON.parse(localStorage.getItem("user"));
+           userScores.textContent = "Score: " + printScore.thescore;
+       }
+
     });
-
 }
 
-  
-  //function to select choice, see if answer is correct, get points if so, lose time if not. 
-  //score (local storage) score++, 
-  //event target
-
-
+  // function that displays event after user chooses answer. Correct/Incorrect
   function enterScore(event) {
     var qAnswer = allQuestion[questionIndex -1].answer
 
     if (event.target.value === qAnswer) {
-        console.log("correct");
         questionsBox.textContent = "Correct! +10 Points! ";
         score += 10;
             
     }  else {
-        console.log("incorrect");
         questionsBox.textContent = "Wrong! You lost 10 Seconds of Time!";
         secondsLeft = secondsLeft - timePenalty;
         }       
@@ -169,18 +182,26 @@ function setTime() {
       timer.textContent = "Time Left: " + secondsLeft 
   
       if(secondsLeft === 0) {
-        endGame();
+        // endGame();
+        clearInterval(timerInterval);
+        timeUp();
       }
   
     }, 1000);
     
   }
 
+//function to hide timer once questions end
 function timeUp() {
-        questionsBox.classList.add('hide');
+        // questionsBox.classList.add('hide');
         reStart.classList.remove('hide');
         button.classList.add('hide');
+        timer.classList.add('hide')
+        scoreInfo.classList.add('hide');
+        questionsBox.classList.add('hide');
+        highScore.classList.add('hide');
 }
+
 
 
 //render questions function
